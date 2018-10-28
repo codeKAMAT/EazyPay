@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>EazyPay</title>
+  </head>
+  <body>
+    <!--Navigation Bar hai  -->
+    <div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  </div>
+
+<div class="firstpara">
+  <h2>EazyPay</h2>
+  <p>Blind can pay easily</p>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+    <!--Camera kaa Scene hai  -->
+
+      <div class="Camera" style="text-align:center;">
+        <video id="vidDisplay" autoplay="true">
+          No Video support in your browser..
+        </video>
+      </div>
+      <script type="text/javascript">
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+        if(navigator.getUserMedia){
+            navigator.getUserMedia({video: true}, handleVideo, videoError);
+        }
+
+        function handleVideo(stream){
+            document.querySelector('#vidDisplay').src = window.URL.createObjectURL(stream);
+        }
+
+        function videoError(e){
+            alert("There has some Problem...");
+        }
+      </script>
+  </body>
+</html>
